@@ -1,0 +1,21 @@
+{
+  "name": "pubsub-utils",
+  "version": "1.0.0",
+  "description": "Useful functions for writing serverless functions around Cloudflare's Pub/Sub service (https://developers.cloudflare.com/pub-sub/)",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@bitbucket.cfdata.org:7999/~msilverlock/pubsub-utils.git"
+  },
+  "keywords": [
+    "cloudflare",
+    "workers",
+    "pubsub",
+    "mqtt"
+  ],
+  "author": "Matt Silverlock, Cloudflare",
+  "license": "BSD-3-Clause"
+}
