@@ -1,3 +1,6 @@
+// Copyright (c) 2022 Cloudflare, Inc.
+// Licensed under the BSD-3-Clause license found in the LICENSE file or at https://opensource.org/licenses/BSD-3-Clause
+
 import { test } from "uvu";
 import * as assert from "uvu/assert";
 import { isValidBrokerRequest } from "../dist/index.js";
