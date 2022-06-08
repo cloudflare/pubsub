@@ -5,12 +5,13 @@
     "module": "es2020",
     "removeComments": true,
     "outDir": "dist/",
-    "rootDirs": ["src","dist"],
+    "rootDirs": ["src"],
     "noImplicitThis": true,
     "noImplicitAny": true,
     "alwaysStrict": true,
     "moduleResolution": "node",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "declaration": true
   },
   "include": ["src/**/*"],
   "types": ["@cloudflare/workers-types"],

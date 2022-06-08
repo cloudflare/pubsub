@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Useful functions for writing serverless functions around Cloudflare's Pub/Sub service (https://developers.cloudflare.com/pub-sub/)",
   "main": "dist/index.js",
-  "types": "src/index.d.ts",
+  "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
     "test": "tsc --project tsconfig.json && uvu tests",
