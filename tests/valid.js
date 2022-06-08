@@ -29,19 +29,20 @@ test("isValidBrokerRequest should return a boolean", async () => {
   let req = new Request("https://broker.namespace.cloudflarepubsub.com");
   let publicKeys = testPublicKeys;
   let isValid = await isValidBrokerRequest(req, publicKeys);
-  assert.is();
+  assert.type(isValid, "boolean")
 });
 
-test("should reject a request without a signature", async () => {});
+test("should reject a request without a signature", async () => {
+  let req = new Request("https://broker.namespace.cloudflarepubsub.com");
+  let publicKeys = testPublicKeys;
+  let isValid = await isValidBrokerRequest(req, publicKeys);
+  assert.not(isValid)
+});
 
 test("should reject a request with an invalid signature", async () => {
-  let isValid = await isValidBrokerRequest(req, publicKeys);
-  await expect(isValid).to.not.be.ok;
 });
 
 test("should accept a request with a valid signature", async () => {
-  let isValid = await isValidBrokerRequest(req, publicKeys);
-  await expect(isValid).to.be.ok;
 });
 
 test.run();
