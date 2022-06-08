@@ -1,8 +1,9 @@
 # pubsub-utils
 
-A set of useful helper methods for writing functions to handle [Cloudflare Pub/Sub](https://developers.cloudflare.com/pub-sub/) messages.
+A set of useful helper methods for writing functions to handle [Cloudflare Pub/Sub](https://developers.cloudflare.com/pub-sub/) messages. This includes:
 
-This primarily includes helpers for [authenticating incoming on-publish webhooks](https://developers.cloudflare.com/pub-sub/learning/integrate-workers/), and may expand to provide other helpers in the future.
+* A `isValidBrokerRequest` helper for [authenticating incoming on-publish webhooks](https://developers.cloudflare.com/pub-sub/learning/integrate-workers/)
+* A `PubSubMessage` type with the fields sent from the Broker to your Worker for use with TypeScript-based Workers and/or for type-aware editors.
 
 ## Installation
 
@@ -19,8 +20,7 @@ The following example shows how to use `isValidBrokerRequest` in a Worker to val
 You can use [`wrangler`](https://github.com/cloudflare/wrangler) to bundle your code for deployment to [Cloudflare Workers](https://developers.cloudflare.com/workers).
 
 ```ts
-// Import isValidBrokerRequest from our library
-import { isValidBrokerRequest } from "@cloudflare/pubsub-utils"
+import { isValidBrokerRequest, PubSubMessage } from "@cloudflare/pubsub-utils"
 
 async function pubsub(
     messages: Array<PubSubMessage>,
@@ -67,6 +67,8 @@ const worker = {
 
 export default worker;
 ```
+
+You can use `wranger@beta publish` to publish this directly: the latest `wrangler` supports TypeScript natively.
 
 ## License
 
