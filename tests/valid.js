@@ -23,26 +23,33 @@ const testPublicKeys = `{
     ]
   }`;
 
-// const testRequest: Request
+const testRequest = new Request("https://broker.namespace.cloudflarepubsub.com");
 
 test("isValidBrokerRequest should return a boolean", async () => {
   let req = new Request("https://broker.namespace.cloudflarepubsub.com");
   let publicKeys = testPublicKeys;
-  let isValid = await isValidBrokerRequest(req, publicKeys);
+  let isValid = await isValidBrokerRequest(testRequest, publicKeys);
   assert.type(isValid, "boolean")
 });
 
-test("should reject a request without a signature", async () => {
-  let req = new Request("https://broker.namespace.cloudflarepubsub.com");
-  let publicKeys = testPublicKeys;
-  let isValid = await isValidBrokerRequest(req, publicKeys);
+test("should reject a reject when the publicKeys are empty", async () => {
+  let emptyKeys = ""
+  let isValid = await isValidBrokerRequest(testRequest, emptyKeys);
+  assert.not(isValid)
+});
+
+test("should reject a reject when the publicKeys are invalid", async () => {
+  let invalidKeys = "some invalid string"
+  let isValid = await isValidBrokerRequest(testRequest, invalidKeys);
   assert.not(isValid)
 });
 
 test("should reject a request with an invalid signature", async () => {
+  // TODO
 });
 
 test("should accept a request with a valid signature", async () => {
+  // TODO
 });
 
 test.run();
