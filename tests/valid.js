@@ -44,12 +44,37 @@ test("should reject a reject when the publicKeys are invalid", async () => {
   assert.not(isValid)
 });
 
-test("should reject a request with an invalid signature", async () => {
-  // TODO
+test("should reject a request with a missing signature", async () => {
+  let missingSigRequest = new Request("https://broker.namespace.cloudflarepubsub.com", {
+    headers: {
+      "X-Signature-Timestamp": "1654703935",
+      "X-Signature-Key-Id": "JDPuYJqHOvqzlakkNFQ9kfN7WsYs5uHndp_ziRdmOCU",
+    },
+  })
+  let isValid = await isValidBrokerRequest(missingSigRequest, testPublicKeys)
+  assert.not(isValid)
 });
 
-test("should accept a request with a valid signature", async () => {
-  // TODO
+test("should reject a request with a missing timestamp", async () => {
+  let missingSigRequest = new Request("https://broker.namespace.cloudflarepubsub.com", {
+    headers: {
+      "X-Signature-Ed25519": "lMfYlzUJXx2u5NGSSS2Y5+L0gRO12UplI/m7IKWgCWKHdaOWbmFyD/04UHBzJZE/TxXDJa1FSu8X3K5/YT+PBA==",
+      "X-Signature-Key-Id": "JDPuYJqHOvqzlakkNFQ9kfN7WsYs5uHndp_ziRdmOCU",
+    },
+  })
+  let isValid = await isValidBrokerRequest(missingSigRequest, testPublicKeys)
+  assert.not(isValid)
+});
+
+test("should reject a request with a missing key ID", async () => {
+  let missingSigRequest = new Request("https://broker.namespace.cloudflarepubsub.com", {
+    headers: {
+      "X-Signature-Ed25519": "lMfYlzUJXx2u5NGSSS2Y5+L0gRO12UplI/m7IKWgCWKHdaOWbmFyD/04UHBzJZE/TxXDJa1FSu8X3K5/YT+PBA==",
+      "X-Signature-Timestamp": "1654703935",
+    },
+  })
+  let isValid = await isValidBrokerRequest(missingSigRequest, testPublicKeys)
+  assert.not(isValid)
 });
 
 test.run();
