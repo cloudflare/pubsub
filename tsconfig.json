@@ -1,10 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es2022",
-    "module": "es6",
+    "strict": true,
+    "target": "es2020",
+    "module": "es2020",
     "removeComments": true,
-    "outDir": "dist/"
+    "outDir": "dist/",
+    "rootDirs": ["src","dist"],
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "alwaysStrict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true
   },
   "include": ["src/**/*"],
-  "types": ["@cloudflare/workers-types"]
+  "types": ["@cloudflare/workers-types"],
+  "exclude": [
+    "node_modules"
+  ]
 }
