@@ -1,4 +1,4 @@
-# pubsub-utils
+# pubsub
 
 A set of useful helper methods for writing functions to handle [Cloudflare Pub/Sub](https://developers.cloudflare.com/pub-sub/) messages. This includes:
 
@@ -10,7 +10,7 @@ A set of useful helper methods for writing functions to handle [Cloudflare Pub/S
 Use `npm` to install:
 
 ```sh
-npm install @cloudflare/pubsub-utils
+npm install @cloudflare/pubsub
 ```
 
 ## Example
@@ -20,7 +20,7 @@ The following example shows how to use `isValidBrokerRequest` in a Worker to val
 You can use [`wrangler`](https://github.com/cloudflare/wrangler) to bundle your code for deployment to [Cloudflare Workers](https://developers.cloudflare.com/workers).
 
 ```ts
-import { isValidBrokerRequest, PubSubMessage } from "@cloudflare/pubsub-utils"
+import { isValidBrokerRequest, PubSubMessage } from "@cloudflare/pubsub"
 
 async function pubsub(
     messages: Array<PubSubMessage>,
@@ -33,7 +33,8 @@ async function pubsub(
     let messagesToKeep: Array<PubSubMessage>
     for (let msg of messages) {
         console.log(msg);
-        // Drop debug messages send by our clients to reduce the load on our subscribers.
+        // Drop debug messages sent by our clients to reduce the load on our
+        // subscribers.
         if (!msg.topic.startsWith("debug") {
             messagesToKeep.push(msg)
         }
@@ -68,7 +69,7 @@ const worker = {
 export default worker;
 ```
 
-You can use `wranger@beta publish` to publish this directly: the latest `wrangler` supports TypeScript natively.
+You can use `wranger publish` to publish this directly: the latest `wrangler` supports TypeScript natively.
 
 ## License
 

@@ -1,10 +1,10 @@
 {
-  "name": "pubsub-utils",
+  "name": "@cloudflare/pubsub",
   "version": "0.0.1",
   "description": "Useful functions for writing serverless functions around Cloudflare's Pub/Sub service (https://developers.cloudflare.com/pub-sub/)",
   "homepage": "https://developers.cloudflare.com/pub-sub",
   "bugs": {
-    "url": "https://github.com/cloudflare/pubsub-utils/issues"
+    "url": "https://github.com/cloudflare/pubsub/issues"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@bitbucket.cfdata.org:7999/~msilverlock/pubsub-utils.git"
+    "url": "ssh://git@github.com:7999/cloudflare/pubsub.git"
   },
   "keywords": [
     "cloudflare",
