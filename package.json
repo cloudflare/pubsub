@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:7999/cloudflare/pubsub.git"
+    "url": "git+https://github.com/cloudflare/pubsub.git"
   },
   "keywords": [
     "cloudflare",
