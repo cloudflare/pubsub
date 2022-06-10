@@ -2,8 +2,8 @@
 
 A set of useful helper methods for writing functions to handle [Cloudflare Pub/Sub](https://developers.cloudflare.com/pub-sub/) messages. This includes:
 
-* A `isValidBrokerRequest` helper for [authenticating incoming on-publish webhooks](https://developers.cloudflare.com/pub-sub/learning/integrate-workers/)
-* A `PubSubMessage` type with the fields sent from the Broker to your Worker for use with TypeScript-based Workers and/or for type-aware editors.
+- A `isValidBrokerRequest` helper for [authenticating incoming on-publish webhooks](https://developers.cloudflare.com/pub-sub/learning/integrate-workers/)
+- A `PubSubMessage` type with the fields sent from the Broker to your Worker for use with TypeScript-based Workers and/or for type-aware editors.
 
 ## Installation
 
@@ -17,7 +17,7 @@ npm install @cloudflare/pubsub
 
 The following example shows how to use `isValidBrokerRequest` in a Worker to validate incoming on-publish webhooks from a Pub/Sub broker.
 
-You can use [`wrangler`](https://github.com/cloudflare/wrangler) to bundle your code for deployment to [Cloudflare Workers](https://developers.cloudflare.com/workers).
+You can use [`wrangler`](https://github.com/cloudflare/wrangler2) to bundle your code for deployment to [Cloudflare Workers](https://developers.cloudflare.com/workers).
 
 ```ts
 import { isValidBrokerRequest, PubSubMessage } from "@cloudflare/pubsub"
