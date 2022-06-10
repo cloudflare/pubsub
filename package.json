@@ -30,10 +30,10 @@
   "author": "Matt Silverlock, Cloudflare",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "@cloudflare/workers-types": "^3.11.0",
     "typescript": "^4.7.3"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^3.11.0",
     "esm": "^3.2.25",
     "uvu": "^0.5.3"
   }
