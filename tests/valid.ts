@@ -3,7 +3,7 @@
 
 import { test } from "uvu";
 import * as assert from "uvu/assert";
-import { isValidBrokerRequest } from "../dist/index.js";
+import { isValidBrokerRequest } from "../src";
 
 const testPublicKeys = `{
     "keys": [
